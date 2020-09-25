@@ -31,7 +31,8 @@ def ray_casting(sc, pos, angle):
             y += dy * BLOCK_TITLE
         depth = min(w_depth, h_depth)
         depth *= np.cos(angle - cur_angle)
-        height = COEFFICIENT / depth
+        depth = max(depth, 0.0001)
+        height = min(int(COEFFICIENT / depth), HEIGHT * 2)
         color = 255 / (1 + depth * depth / 100000)
         pygame.draw.rect(
             sc,
