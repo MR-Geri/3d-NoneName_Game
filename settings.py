@@ -11,7 +11,7 @@ FPS_POS = (WIDTH - 50, 5)
 # player settings
 player_pos = (WIDTH // 2, HEIGHT // 2)
 player_angle = 0
-player_speed = 10
+player_speed = 2
 player_angle_speed = 0.03
 
 # color
@@ -24,9 +24,9 @@ RED = (255, 0, 0)
 # ray casting settings
 FOV = np.pi / 3
 HALF_FOV = FOV / 2
-NUM_RAYS = 120
+NUM_RAYS = 300
 MAX_DEPTH = WIDTH
 DELTA_ANGLE = FOV / NUM_RAYS
 DIST = NUM_RAYS / (2 * np.tan(HALF_FOV))
-COEFFICIENT = 3 * DIST * BLOCK_TITLE
+COEFFICIENT = DIST * BLOCK_TITLE
 SCALE = WIDTH // NUM_RAYS
