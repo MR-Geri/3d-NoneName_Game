@@ -1,4 +1,3 @@
-import pygame
 import numpy as np
 
 
@@ -6,7 +5,7 @@ import numpy as np
 WIDTH, HEIGHT = 1800, 1000
 FPS = 60
 BLOCK_TITLE = 100
-sc = pygame.display.set_mode((WIDTH, HEIGHT))
+FPS_POS = (WIDTH - 50, 5)
 
 
 # player settings
@@ -19,7 +18,8 @@ player_angle_speed = 0.03
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (128, 128, 128)
-BLUE = (207, 74, 100)
+BLUE = (0, 180, 255)
+RED = (255, 0, 0)
 
 # ray casting settings
 FOV = np.pi / 3
