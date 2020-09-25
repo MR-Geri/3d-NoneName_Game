@@ -6,9 +6,10 @@ import pygame
 
 pygame.init()
 sc = pygame.display.set_mode((WIDTH, HEIGHT))
+sc_map = pygame.Surface((WIDTH // MAP_SCALE, HEIGHT // MAP_SCALE))
 clock = pygame.time.Clock()
 player = Player()
-drawing = Drawing(sc)
+drawing = Drawing(sc, sc_map)
 
 while True:
     for event in pygame.event.get():
@@ -20,6 +21,7 @@ while True:
     drawing.background()
     drawing.world(player.pos, player.angle)
     drawing.fps(clock)
+    drawing.mini_map(player)
     #
     pygame.display.update()
     clock.tick(FPS)
