@@ -1,6 +1,6 @@
 from settings import *
 import pygame
-import numpy as np
+import math
 
 
 class Player:
@@ -12,17 +12,17 @@ class Player:
         key = pygame.key.get_pressed()
 
         if key[pygame.K_w]:
-            self.cord_x += player_speed * np.cos(self.angle)
-            self.cord_y += player_speed * np.sin(self.angle)
+            self.cord_x += player_speed * math.cos(self.angle)
+            self.cord_y += player_speed * math.sin(self.angle)
         if key[pygame.K_s]:
-            self.cord_x -= player_speed * np.cos(self.angle)
-            self.cord_y -= player_speed * np.sin(self.angle)
+            self.cord_x -= player_speed * math.cos(self.angle)
+            self.cord_y -= player_speed * math.sin(self.angle)
         if key[pygame.K_a]:
-            self.cord_x += player_speed * np.sin(self.angle)
-            self.cord_y -= player_speed * np.cos(self.angle)
+            self.cord_x += player_speed * math.sin(self.angle)
+            self.cord_y -= player_speed * math.cos(self.angle)
         if key[pygame.K_d]:
-            self.cord_x -= player_speed * np.sin(self.angle)
-            self.cord_y += player_speed * np.cos(self.angle)
+            self.cord_x -= player_speed * math.sin(self.angle)
+            self.cord_y += player_speed * math.cos(self.angle)
         if key[pygame.K_LEFT]:
             self.angle -= player_angle_speed
         if key[pygame.K_RIGHT]:

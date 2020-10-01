@@ -1,7 +1,7 @@
 from map import world_map
 from settings import *
 import pygame
-import numpy as np
+import math
 
 
 def mapping(x, y):
@@ -13,8 +13,8 @@ def ray_casting(sc, pos, angle):
     xm, ym = mapping(x0, y0)
     cur_angle = angle - HALF_FOV
     for ray in range(NUM_RAYS):
-        sin = np.sin(cur_angle)
-        cos = np.cos(cur_angle)
+        sin = math.sin(cur_angle)
+        cos = math.cos(cur_angle)
         x, dx = (xm + BLOCK_TITLE, 1) if cos >= 0 else (xm, -1)
         for i in range(0, WIDTH, BLOCK_TITLE):
             w_depth = (x - x0) / cos
@@ -31,12 +31,20 @@ def ray_casting(sc, pos, angle):
             y += dy * BLOCK_TITLE
         depth = min(w_depth, h_depth)
         depth *= np.cos(angle - cur_angle)
-        depth = max(depth, 0.0001)
-        height = min(int(COEFFICIENT / depth), HEIGHT * 2)
-        color = 255 / (1 + depth * depth / 100000)
+        # depth = max(depth, 0.00001)
+        # height = min(int(COEFFICIENT / depth), HEIGHT * 2)
+        # color = 255 / (1 + depth * depth / 100000)
+        # pygame.draw.rect(
+        #     sc,
+        #     (color // 2, color, color // 3),
+        #     (ray * SCALE, HEIGHT // 2 - height // 2, SCALE, height)
+        # )
+        depth = max(depth, 0.00001)
+        height = COEFFICIENT / depth
+        color = 255 / (1 + depth * depth * 0.00002)
         pygame.draw.rect(
             sc,
-            (color // 2, color, color // 3),
+            (color, color // 2, color // 3),
             (ray * SCALE, HEIGHT // 2 - height // 2, SCALE, height)
         )
         cur_angle += DELTA_ANGLE

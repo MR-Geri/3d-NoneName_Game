@@ -1,4 +1,4 @@
-import numpy as np
+import math
 
 
 # game settings
@@ -24,13 +24,13 @@ GREEN = (0, 80, 0)
 YELLOW = (220, 220, 0)
 
 # ray casting settings
-FOV = np.pi / 3
+FOV = math.pi / 3
 HALF_FOV = FOV / 2
 NUM_RAYS = 600
 MAX_DEPTH = WIDTH
 DELTA_ANGLE = FOV / NUM_RAYS
-DIST = NUM_RAYS / (2 * np.tan(HALF_FOV))
-COEFFICIENT = DIST * BLOCK_TITLE
+DIST = NUM_RAYS / (2 * math.tan(HALF_FOV))
+COEFFICIENT = 2 * DIST * BLOCK_TITLE
 SCALE = WIDTH // NUM_RAYS
 
 # mini-maps

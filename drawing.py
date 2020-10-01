@@ -3,7 +3,7 @@ from ray_casting import ray_casting
 from map import mini_map
 
 import pygame
-import numpy as np
+import math
 
 
 class Drawing:
@@ -28,7 +28,7 @@ class Drawing:
         pygame.draw.line(
             self.sc_map, YELLOW,
             (x, y),
-            (x + 12 * np.cos(player.angle), y + 12 * np.sin(player.angle)),
+            (x + 12 * math.cos(player.angle), y + 12 * math.sin(player.angle)),
             2
         )
         pygame.draw.circle(self.sc_map, GREEN, (x, y), 5)
