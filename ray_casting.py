@@ -30,7 +30,7 @@ def ray_casting(sc, pos, angle):
                 break
             y += dy * BLOCK_TITLE
         depth = min(w_depth, h_depth)
-        depth *= np.cos(angle - cur_angle)
+        depth *= math.cos(angle - cur_angle)
         # depth = max(depth, 0.00001)
         # height = min(int(COEFFICIENT / depth), HEIGHT * 2)
         # color = 255 / (1 + depth * depth / 100000)
